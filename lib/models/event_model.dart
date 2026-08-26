@@ -1,4 +1,5 @@
 class EventModel {
+  final String id;
   final String image;
   final String category;
   final String date;
@@ -7,6 +8,7 @@ class EventModel {
   final String price;
 
   const EventModel({
+    required this.id,
     required this.image,
     required this.category,
     required this.date,

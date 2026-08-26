@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hobitix/features/home/presentation/pages/event_detail_page.dart';
 import 'package:hobitix/features/notification/presentation/pages/notification_page.dart';
 import 'package:hobitix/features/onboarding/presentation/pages/onboarding_page.dart';
 import 'package:hobitix/features/splash/presentation/pages/splash_page.dart';
+import 'package:hobitix/models/event_model.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../features/explore/presentation/pages/explore_page.dart';
@@ -35,6 +37,16 @@ final GoRouter appRouter = GoRouter(
       name: 'notification',
       builder: (context, state) {
         return const NotificationPage();
+      },
+    ),
+
+    GoRoute(
+      path: '/event/:id',
+      name: 'event-detail',
+      builder: (context, state) {
+        final id = state.pathParameters["id"]!;
+
+        return EventDetailPage(eventId: id);
       },
     ),
     StatefulShellRoute.indexedStack(

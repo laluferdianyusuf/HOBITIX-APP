@@ -24,6 +24,7 @@ class _ExplorePageState extends State<ExplorePage> {
 
   final List<EventModel> _events = const [
     EventModel(
+      id: "1",
       image:
           'https://images.unsplash.com/photo-1492684223066-81342ee5ff30'
           '?auto=format&fit=crop&w=700&q=80',
@@ -35,6 +36,7 @@ class _ExplorePageState extends State<ExplorePage> {
     ),
 
     EventModel(
+      id: "2",
       image:
           'https://images.unsplash.com/photo-1540039155733-5bb30b53aa14'
           '?auto=format&fit=crop&w=700&q=80',
@@ -46,6 +48,7 @@ class _ExplorePageState extends State<ExplorePage> {
     ),
 
     EventModel(
+      id: "3",
       image:
           'https://images.unsplash.com/photo-1506157786151-b8491531f063'
           '?auto=format&fit=crop&w=700&q=80',
@@ -57,6 +60,7 @@ class _ExplorePageState extends State<ExplorePage> {
     ),
 
     EventModel(
+      id: "4",
       image:
           'https://images.unsplash.com/photo-1511192336575-5a79af67a629'
           '?auto=format&fit=crop&w=700&q=80',

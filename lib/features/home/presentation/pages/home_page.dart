@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hobitix/app/theme/app_colors.dart';
 import 'package:hobitix/models/event_model.dart';
 import 'package:hobitix/shared/widgets/home/category_chip.dart';
@@ -13,6 +14,7 @@ class HomePage extends StatelessWidget {
 
   List<EventModel> get events => const [
     EventModel(
+      id: "1",
       image:
           "https://images.unsplash.com/photo-1511192336575-5a79af67a629"
           "?auto=format&fit=crop&w=500&q=85",
@@ -24,6 +26,7 @@ class HomePage extends StatelessWidget {
     ),
 
     EventModel(
+      id: "2",
       image:
           "https://images.unsplash.com/photo-1511192336575-5a79af67a629"
           "?auto=format&fit=crop&w=500&q=80",
@@ -35,6 +38,7 @@ class HomePage extends StatelessWidget {
     ),
 
     EventModel(
+      id: "3",
       image:
           "https://images.unsplash.com/photo-1531058020387-3be344556be6"
           "?auto=format&fit=crop&w=500&q=80",
@@ -46,6 +50,7 @@ class HomePage extends StatelessWidget {
     ),
 
     EventModel(
+      id: "4",
       image:
           "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14"
           "?auto=format&fit=crop&w=500&q=80",
@@ -107,7 +112,7 @@ class HomePage extends StatelessWidget {
                     return LargeEventCard(
                       event: event,
                       onTap: () {
-                        debugPrint("Open ${event.title}");
+                        context.push('/event/${event.id}', extra: event);
                       },
                     );
                   }
@@ -117,7 +122,7 @@ class HomePage extends StatelessWidget {
                     child: SmallEventCard(
                       event: event,
                       onTap: () {
-                        debugPrint("Open ${event.title}");
+                        context.push('/event/${event.id}', extra: event);
                       },
                     ),
                   );
