@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hobitix/shared/widgets/icon_button.dart';
 import 'package:iconsax/iconsax.dart';
 
 class NotificationAppBar extends StatelessWidget
@@ -20,7 +21,7 @@ class NotificationAppBar extends StatelessWidget
       leading: Padding(
         padding: const EdgeInsets.only(left: 12),
         child: Center(
-          child: _IconButton(
+          child: AppIconButton(
             icon: Iconsax.arrow_left,
             onTap: () {
               if (context.canPop()) {
@@ -132,29 +133,6 @@ class NotificationAppBar extends StatelessWidget
           ),
         ),
       ],
-    );
-  }
-}
-
-class _IconButton extends StatelessWidget {
-  final IconData icon;
-  final VoidCallback onTap;
-
-  const _IconButton({required this.icon, required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        width: 34,
-        height: 34,
-        decoration: BoxDecoration(
-          color: const Color(0xFFF8F8FA),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Icon(icon, size: 19, color: const Color(0xFF444444)),
-      ),
     );
   }
 }

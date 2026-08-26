@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hobitix/shared/widgets/icon_button.dart';
 import 'package:iconsax/iconsax.dart';
 
 class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -17,7 +18,7 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
 
       leading: Padding(
         padding: const EdgeInsets.only(left: 12),
-        child: _IconButton(
+        child: AppIconButton(
           icon: Iconsax.search_normal,
           onTap: () {
             debugPrint("Search");
@@ -37,7 +38,7 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         Padding(
           padding: const EdgeInsets.only(right: 12),
-          child: _IconButton(
+          child: AppIconButton(
             icon: Iconsax.notification,
             onTap: () {
               debugPrint("Notification");
@@ -45,29 +46,6 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class _IconButton extends StatelessWidget {
-  final IconData icon;
-  final VoidCallback onTap;
-
-  const _IconButton({required this.icon, required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        width: 34,
-        height: 34,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Icon(icon, size: 19, color: const Color(0xFF444444)),
-      ),
     );
   }
 }

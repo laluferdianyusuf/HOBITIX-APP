@@ -3,8 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:hobitix/shared/widgets/icon_button.dart';
 import 'package:iconsax/iconsax.dart';
 
-class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const HomeAppBar({super.key});
+class TrendingAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const TrendingAppBar({super.key});
 
   @override
   Size get preferredSize => const Size.fromHeight(58);
@@ -21,17 +21,16 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         padding: const EdgeInsets.only(left: 12),
         child: Center(
           child: AppIconButton(
-            icon: Iconsax.search_normal,
+            icon: Iconsax.arrow_left,
             onTap: () {
-              context.go("/explore");
-              debugPrint("Search");
+              context.pop();
             },
           ),
         ),
       ),
 
       title: const Text(
-        "Hobitix",
+        "Trending Now",
         style: TextStyle(
           fontSize: 17,
           fontWeight: FontWeight.w800,
@@ -45,7 +44,6 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
           child: AppIconButton(
             icon: Iconsax.notification,
             onTap: () {
-              context.go('/notification');
               debugPrint("Notification");
             },
           ),
