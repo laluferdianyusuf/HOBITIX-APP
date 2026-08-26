@@ -4,6 +4,7 @@ import 'package:hobitix/app/theme/app_colors.dart';
 import 'package:hobitix/models/event_model.dart';
 import 'package:hobitix/shared/widgets/home/category_chip.dart';
 import 'package:hobitix/shared/widgets/home/featured_event_card.dart';
+import 'package:hobitix/shared/widgets/home/featured_event_carousel.dart';
 import 'package:hobitix/shared/widgets/home/home_app_bar.dart';
 import 'package:hobitix/shared/widgets/home/large_event_card.dart';
 import 'package:hobitix/shared/widgets/home/small_event_card.dart';
@@ -70,10 +71,10 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
-            const SliverToBoxAdapter(
+            SliverToBoxAdapter(
               child: Padding(
                 padding: EdgeInsets.fromLTRB(20, 12, 20, 18),
-                child: FeaturedEventCard(),
+                child: FeaturedEventCarousel(events: events),
               ),
             ),
 
