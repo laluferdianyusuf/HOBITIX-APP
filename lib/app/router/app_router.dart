@@ -5,6 +5,8 @@ import 'package:hobitix/features/home/presentation/pages/event_detail_page.dart'
 import 'package:hobitix/features/notification/presentation/pages/notification_page.dart';
 import 'package:hobitix/features/onboarding/presentation/pages/onboarding_page.dart';
 import 'package:hobitix/features/splash/presentation/pages/splash_page.dart';
+import 'package:hobitix/features/tickets/presentation/pages/ticket_details_page.dart';
+import 'package:hobitix/models/ticket_model.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../features/explore/presentation/pages/explore_page.dart';
@@ -47,6 +49,16 @@ final GoRouter appRouter = GoRouter(
         final id = state.pathParameters["id"]!;
 
         return EventDetailPage(eventId: id);
+      },
+    ),
+
+    GoRoute(
+      path: '/ticket/:id',
+      name: 'ticket-detail',
+      builder: (context, state) {
+        final ticket = state.extra as TicketData;
+
+        return TicketDetailsPage(ticket: ticket);
       },
     ),
 

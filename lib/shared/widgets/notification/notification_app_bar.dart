@@ -24,11 +24,7 @@ class NotificationAppBar extends StatelessWidget
           child: AppIconButton(
             icon: Iconsax.arrow_left,
             onTap: () {
-              if (context.canPop()) {
-                context.pop();
-              } else {
-                context.go('/home');
-              }
+              context.pop();
             },
           ),
         ),

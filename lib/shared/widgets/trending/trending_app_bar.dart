@@ -37,18 +37,6 @@ class TrendingAppBar extends StatelessWidget implements PreferredSizeWidget {
           color: Color(0xFF4B36D8),
         ),
       ),
-
-      actions: [
-        Padding(
-          padding: const EdgeInsets.only(right: 12),
-          child: AppIconButton(
-            icon: Iconsax.notification,
-            onTap: () {
-              debugPrint("Notification");
-            },
-          ),
-        ),
-      ],
     );
   }
 }
