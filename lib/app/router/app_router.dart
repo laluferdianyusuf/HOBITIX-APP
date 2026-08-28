@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hobitix/features/explore/presentation/pages/interest_event_page.dart';
 import 'package:hobitix/features/explore/presentation/pages/trending_page.dart';
 import 'package:hobitix/features/home/presentation/pages/event_detail_page.dart';
+import 'package:hobitix/features/home/presentation/pages/select_ticket_page.dart';
 import 'package:hobitix/features/notification/presentation/pages/notification_page.dart';
 import 'package:hobitix/features/onboarding/presentation/pages/onboarding_page.dart';
 import 'package:hobitix/features/splash/presentation/pages/splash_page.dart';
 import 'package:hobitix/features/tickets/presentation/pages/ticket_details_page.dart';
+import 'package:hobitix/models/event_model.dart';
 import 'package:hobitix/models/ticket_model.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -63,10 +66,28 @@ final GoRouter appRouter = GoRouter(
     ),
 
     GoRoute(
+      path: '/interest/:interest',
+      name: 'interest-events',
+      builder: (context, state) {
+        final interest = state.pathParameters['interest']!;
+
+        return InterestEventsPage(interest: interest);
+      },
+    ),
+
+    GoRoute(
       path: '/trending',
       name: 'trending',
       builder: (context, state) {
         return TrendingPage();
+      },
+    ),
+
+    GoRoute(
+      path: '/tickets/book',
+      name: 'tickets-book',
+      builder: (context, state) {
+        return SelectTicketPage();
       },
     ),
     StatefulShellRoute.indexedStack(

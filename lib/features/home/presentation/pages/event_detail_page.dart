@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hobitix/shared/widgets/home/event_detail_app_bar.dart';
 
 class EventDetailPage extends StatelessWidget {
@@ -102,9 +103,8 @@ class _EventDetailViewState extends State<_EventDetailView> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        height: 39,
-                        padding: EdgeInsets.fromLTRB(20, 12, 20, 18),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 12, 20, 18),
                         child: Row(
                           children: [
                             _Tag(
@@ -422,7 +422,9 @@ class _EventDetailViewState extends State<_EventDetailView> {
                     width: 105,
                     height: 42,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        context.go('/tickets/book');
+                      },
                       style: ElevatedButton.styleFrom(
                         elevation: 0,
                         backgroundColor: primaryColor,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class InterestSection extends StatelessWidget {
   const InterestSection({super.key});
@@ -23,8 +24,13 @@ class InterestSection extends StatelessWidget {
                 child: _InterestCard(
                   title: 'Nightlife',
                   image:
-                      'https://images.unsplash.com/photo-1504150558240-0b4fd8946624'
-                      '?auto=format&fit=crop&w=500&q=80',
+                      'https://images.unsplash.com/photo-1504150558240-0b4fd8946624?auto=format&fit=crop&w=500&q=80',
+                  onTap: () {
+                    context.pushNamed(
+                      'interest-events',
+                      pathParameters: {'interest': 'Nightlife'},
+                    );
+                  },
                 ),
               ),
 
@@ -34,8 +40,13 @@ class InterestSection extends StatelessWidget {
                 child: _InterestCard(
                   title: 'Family',
                   image:
-                      'https://images.unsplash.com/photo-1504150558240-0b4fd8946624'
-                      '?auto=format&fit=crop&w=500&q=80',
+                      'https://images.unsplash.com/photo-1504150558240-0b4fd8946624?auto=format&fit=crop&w=500&q=80',
+                  onTap: () {
+                    context.pushNamed(
+                      'interest-events',
+                      pathParameters: {'interest': 'Family'},
+                    );
+                  },
                 ),
               ),
             ],
@@ -49,8 +60,13 @@ class InterestSection extends StatelessWidget {
                 child: _InterestCard(
                   title: 'Arts',
                   image:
-                      'https://images.unsplash.com/photo-1561214115-f2f134cc4912'
-                      '?auto=format&fit=crop&w=500&q=80',
+                      'https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=500&q=80',
+                  onTap: () {
+                    context.pushNamed(
+                      'interest-events',
+                      pathParameters: {'interest': 'Arts'},
+                    );
+                  },
                 ),
               ),
 
@@ -60,8 +76,13 @@ class InterestSection extends StatelessWidget {
                 child: _InterestCard(
                   title: 'Sports',
                   image:
-                      'https://images.unsplash.com/photo-1461896836934-ffe607ba8211'
-                      '?auto=format&fit=crop&w=500&q=80',
+                      'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=500&q=80',
+                  onTap: () {
+                    context.pushNamed(
+                      'interest-events',
+                      pathParameters: {'interest': 'Sports'},
+                    );
+                  },
                 ),
               ),
             ],
@@ -75,46 +96,64 @@ class InterestSection extends StatelessWidget {
 class _InterestCard extends StatelessWidget {
   final String title;
   final String image;
+  final VoidCallback onTap;
 
-  const _InterestCard({required this.title, required this.image});
+  const _InterestCard({
+    required this.title,
+    required this.image,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(12),
-      child: SizedBox(
-        height: 90,
-        child: Stack(
-          fit: StackFit.expand,
-          children: [
-            Image.network(image, fit: BoxFit.cover),
-
-            Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Colors.transparent,
-                    Colors.black.withValues(alpha: 0.65),
-                  ],
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(12),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(12),
+          child: SizedBox(
+            height: 90,
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                Image.network(
+                  image,
+                  fit: BoxFit.cover,
+                  errorBuilder: (_, __, ___) {
+                    return Container(color: Colors.grey.shade300);
+                  },
                 ),
-              ),
-            ),
 
-            Positioned(
-              left: 10,
-              bottom: 8,
-              child: Text(
-                title,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 11,
-                  fontWeight: FontWeight.w800,
+                Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Colors.transparent,
+                        Colors.black.withValues(alpha: 0.65),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
+
+                Positioned(
+                  left: 10,
+                  bottom: 8,
+                  child: Text(
+                    title,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 11,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

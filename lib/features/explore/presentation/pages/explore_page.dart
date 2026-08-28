@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hobitix/app/theme/app_colors.dart';
+import 'package:hobitix/data/dummy/event_data.dart';
 import 'package:hobitix/models/event_model.dart';
 import 'package:hobitix/shared/widgets/explore/explore_app_bar.dart';
 import 'package:hobitix/shared/widgets/explore/explore_content.dart';
@@ -22,58 +23,8 @@ class _ExplorePageState extends State<ExplorePage> {
   String? _selectedLocation;
   String? _selectedType;
 
-  final List<EventModel> _events = const [
-    EventModel(
-      id: "1",
-      image:
-          'https://images.unsplash.com/photo-1492684223066-81342ee5ff30'
-          '?auto=format&fit=crop&w=700&q=80',
-      category: 'MUSIC',
-      date: 'Aug 15-17, 2026',
-      title: 'Neon Lights Electronic Festival 2026',
-      location: 'Downtown Arena, Main Stage',
-      price: '\$80.00',
-    ),
-
-    EventModel(
-      id: "2",
-      image:
-          'https://images.unsplash.com/photo-1540039155733-5bb30b53aa14'
-          '?auto=format&fit=crop&w=700&q=80',
-      category: 'MUSIC',
-      date: 'Oct 4, 2026',
-      title: 'Neon Dust Music Festival 2026',
-      location: 'Downtown Arena',
-      price: '\$50.00',
-    ),
-
-    EventModel(
-      id: "3",
-      image:
-          'https://images.unsplash.com/photo-1506157786151-b8491531f063'
-          '?auto=format&fit=crop&w=700&q=80',
-      category: 'LIVE',
-      date: 'Oct 12, 2026',
-      title: 'Woods & Waves Indie Fest',
-      location: 'Forest Park',
-      price: '\$40.00',
-    ),
-
-    EventModel(
-      id: "4",
-      image:
-          'https://images.unsplash.com/photo-1511192336575-5a79af67a629'
-          '?auto=format&fit=crop&w=700&q=80',
-      category: 'MUSIC',
-      date: 'Oct 20, 2026',
-      title: 'Uptown Jazz & Blues',
-      location: 'City Hall',
-      price: 'Free Entry',
-    ),
-  ];
-
   List<EventModel> get _searchResults {
-    var results = List<EventModel>.from(_events);
+    var results = List<EventModel>.from(dummyEvents);
 
     if (_query.trim().isNotEmpty) {
       final query = _query.trim().toLowerCase();
