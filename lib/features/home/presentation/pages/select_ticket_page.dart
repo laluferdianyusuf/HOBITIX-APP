@@ -89,11 +89,13 @@ class _SelectTicketPageState extends State<SelectTicketPage> {
       appBar: AppBar(
         backgroundColor: AppColors.background,
         elevation: 0,
-        leading: AppIconButton(
-          icon: Iconsax.arrow_left,
-          onTap: () {
-            context.pop();
-          },
+        leading: Center(
+          child: AppIconButton(
+            icon: Iconsax.arrow_left,
+            onTap: () {
+              context.pop();
+            },
+          ),
         ),
         title: const Text(
           'Select Ticket',

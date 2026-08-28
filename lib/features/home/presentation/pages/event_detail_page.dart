@@ -423,7 +423,7 @@ class _EventDetailViewState extends State<_EventDetailView> {
                     height: 42,
                     child: ElevatedButton(
                       onPressed: () {
-                        context.go('/tickets/book');
+                        context.push('/tickets/book');
                       },
                       style: ElevatedButton.styleFrom(
                         elevation: 0,
