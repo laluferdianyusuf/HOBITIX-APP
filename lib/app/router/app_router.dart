@@ -3,13 +3,14 @@ import 'package:go_router/go_router.dart';
 import 'package:hobitix/features/explore/presentation/pages/interest_event_page.dart';
 import 'package:hobitix/features/explore/presentation/pages/trending_page.dart';
 import 'package:hobitix/features/home/presentation/pages/event_detail_page.dart';
+import 'package:hobitix/features/home/presentation/pages/identity_information_page.dart';
 import 'package:hobitix/features/home/presentation/pages/select_ticket_page.dart';
 import 'package:hobitix/features/notification/presentation/pages/notification_page.dart';
 import 'package:hobitix/features/onboarding/presentation/pages/onboarding_page.dart';
 import 'package:hobitix/features/splash/presentation/pages/splash_page.dart';
 import 'package:hobitix/features/tickets/presentation/pages/ticket_details_page.dart';
-import 'package:hobitix/models/event_model.dart';
 import 'package:hobitix/models/ticket_model.dart';
+import 'package:hobitix/models/ticket_type_mode.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../features/explore/presentation/pages/explore_page.dart';
@@ -90,6 +91,19 @@ final GoRouter appRouter = GoRouter(
         return SelectTicketPage();
       },
     ),
+
+    GoRoute(
+      path: '/identity/fill',
+      name: 'identity-fill',
+      builder: (context, state) {
+        final extra = state.extra as Map<String, dynamic>;
+        final tickets = extra['tickets'] as List<TicketType>;
+        final total = extra['total'] as int;
+
+        return IdentityInformationPage(tickets: tickets, total: total);
+      },
+    ),
+
     StatefulShellRoute.indexedStack(
       builder:
           (
