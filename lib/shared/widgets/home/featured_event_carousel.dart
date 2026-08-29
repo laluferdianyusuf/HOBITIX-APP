@@ -19,7 +19,11 @@ class FeaturedEventCarousel extends StatelessWidget {
         return FeaturedEventCard(
           event: event,
           onTap: () {
-            context.push('/event/${event.id}');
+            context.pushNamed(
+              'event-detail',
+              pathParameters: {'id': event.id},
+              extra: event,
+            );
           },
         );
       },

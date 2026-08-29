@@ -104,7 +104,11 @@ class _HomePageState extends State<HomePage> {
                       return LargeEventCard(
                         event: event,
                         onTap: () {
-                          context.push('/event/${event.id}', extra: event);
+                          context.pushNamed(
+                            'event-detail',
+                            pathParameters: {'id': event.id},
+                            extra: event,
+                          );
                         },
                       );
                     }
@@ -114,7 +118,11 @@ class _HomePageState extends State<HomePage> {
                       child: SmallEventCard(
                         event: event,
                         onTap: () {
-                          context.push('/event/${event.id}', extra: event);
+                          context.pushNamed(
+                            'event-detail',
+                            pathParameters: {'id': event.id},
+                            extra: event,
+                          );
                         },
                       ),
                     );

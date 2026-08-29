@@ -27,7 +27,7 @@ class TrendingSection extends StatelessWidget {
 
                 GestureDetector(
                   onTap: () {
-                    context.push('/trending');
+                    context.pushNamed('trending');
                   },
                   behavior: HitTestBehavior.opaque,
                   child: Row(

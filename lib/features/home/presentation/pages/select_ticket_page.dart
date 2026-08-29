@@ -22,18 +22,18 @@ class _SelectTicketPageState extends State<SelectTicketPage> {
     TicketType(
       name: 'General Admission',
       description: 'Standard entry to the main floor.',
-      price: 85,
+      price: 85000,
     ),
     TicketType(
       name: 'VIP Experience',
       description: 'Early entry, private bar access, and commemorative poster.',
-      price: 150,
+      price: 150000,
       accentColor: const Color(0xff6352E8),
     ),
     TicketType(
       name: 'Early Bird',
       description: 'Limited early bird ticket.',
-      price: 65,
+      price: 65000,
       soldOut: true,
     ),
   ];
@@ -94,8 +94,8 @@ class _SelectTicketPageState extends State<SelectTicketPage> {
   void _proceedToCheckout() {
     if (totalTickets == 0) return;
 
-    context.push(
-      '/identity/fill',
+    context.pushNamed(
+      'identity-fill',
       extra: {
         'tickets': _tickets.where((ticket) => ticket.quantity > 0).toList(),
         'total': totalAmount,

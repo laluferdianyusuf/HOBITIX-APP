@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hobitix/features/explore/presentation/pages/interest_event_page.dart';
 import 'package:hobitix/features/explore/presentation/pages/trending_page.dart';
+import 'package:hobitix/features/home/presentation/pages/checkout_page.dart';
 import 'package:hobitix/features/home/presentation/pages/event_detail_page.dart';
 import 'package:hobitix/features/home/presentation/pages/identity_information_page.dart';
+import 'package:hobitix/features/home/presentation/pages/payment_page.dart';
+import 'package:hobitix/features/home/presentation/pages/payment_success_page.dart';
 import 'package:hobitix/features/home/presentation/pages/select_ticket_page.dart';
 import 'package:hobitix/features/notification/presentation/pages/notification_page.dart';
 import 'package:hobitix/features/onboarding/presentation/pages/onboarding_page.dart';
@@ -101,6 +104,49 @@ final GoRouter appRouter = GoRouter(
         final total = extra['total'] as int;
 
         return IdentityInformationPage(tickets: tickets, total: total);
+      },
+    ),
+
+    GoRoute(
+      path: '/checkout',
+      name: 'checkout',
+      builder: (context, state) {
+        final extra = state.extra as Map<String, dynamic>? ?? {};
+
+        final tickets = (extra['tickets'] as List<TicketType>?) ?? [];
+        final totalAmount = (extra['totalAmount'] as int?) ?? 0;
+        final identity = (extra['identity'] as Map<String, dynamic>?) ?? {};
+
+        return CheckoutPage(
+          tickets: tickets,
+          total: totalAmount,
+          identity: identity,
+        );
+      },
+    ),
+
+    GoRoute(
+      path: '/payment',
+      name: 'payment',
+      builder: (context, state) {
+        final extra = state.extra as Map<String, dynamic>?;
+
+        final String paymentMethod =
+            extra?['paymentMethod'] as String? ?? 'QRIS';
+        final int totalAmount = extra?['totalAmount'] as int? ?? 0;
+
+        return PaymentPage(
+          paymentMethod: paymentMethod,
+          totalAmount: totalAmount,
+        );
+      },
+    ),
+
+    GoRoute(
+      path: '/payment/success',
+      name: 'payment-success',
+      builder: (context, state) {
+        return PaymentSuccessPage();
       },
     ),
 

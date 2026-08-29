@@ -59,9 +59,9 @@ class _EventDetailViewState extends State<_EventDetailView> {
                               begin: Alignment.topCenter,
                               end: Alignment.bottomCenter,
                               colors: [
-                                Colors.black.withOpacity(.28),
+                                Colors.black.withValues(alpha: .28),
                                 Colors.transparent,
-                                Colors.black.withOpacity(.25),
+                                Colors.black.withValues(alpha: .25),
                               ],
                             ),
                           ),
@@ -387,7 +387,7 @@ class _EventDetailViewState extends State<_EventDetailView> {
                 border: const Border(top: BorderSide(color: Color(0xFFE5E8F0))),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(.04),
+                    color: Colors.black.withValues(alpha: .04),
                     blurRadius: 14,
                     offset: const Offset(0, -3),
                   ),
@@ -423,7 +423,7 @@ class _EventDetailViewState extends State<_EventDetailView> {
                     height: 42,
                     child: ElevatedButton(
                       onPressed: () {
-                        context.push('/tickets/book');
+                        context.pushNamed('tickets-book');
                       },
                       style: ElevatedButton.styleFrom(
                         elevation: 0,
@@ -466,7 +466,7 @@ class _CircleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.white.withOpacity(.88),
+      color: Colors.white.withValues(alpha: .88),
       shape: const CircleBorder(),
       child: InkWell(
         onTap: onTap,
@@ -530,7 +530,7 @@ class _InfoCard extends StatelessWidget {
         border: Border.all(color: const Color(0xFFE9EBF1)),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(.015),
+            color: Colors.black.withValues(alpha: .015),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),

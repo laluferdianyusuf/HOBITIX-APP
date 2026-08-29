@@ -117,7 +117,24 @@ class _IdentityInformationPageState extends State<IdentityInformationPage> {
           height: 52,
           child: ElevatedButton(
             onPressed: () {
-              // Action saat submit form
+              final identityData = {
+                'fullName': _fullNameController.text,
+                'email': _emailController.text,
+                'phone': _phoneController.text,
+                'dob': _dobController.text,
+                'gender': _selectedGender ?? '',
+                'identityType': _selectedIdentityType,
+                'identityNumber': _idNumberController.text,
+              };
+
+              context.pushNamed(
+                'checkout',
+                extra: <String, dynamic>{
+                  'tickets': widget.tickets,
+                  'totalAmount': widget.total,
+                  'identity': identityData,
+                },
+              );
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.primary,

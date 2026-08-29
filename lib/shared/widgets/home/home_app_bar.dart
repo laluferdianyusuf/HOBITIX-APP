@@ -45,7 +45,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
           child: AppIconButton(
             icon: Iconsax.notification,
             onTap: () {
-              context.push('/notification');
+              context.pushNamed('notification');
             },
           ),
         ),

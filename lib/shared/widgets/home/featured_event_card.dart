@@ -13,7 +13,11 @@ class FeaturedEventCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.push('/event/${event.id}');
+        context.pushNamed(
+          'event-detail',
+          pathParameters: {'id': event.id},
+          extra: event,
+        );
       },
       child: Container(
         height: 191,
